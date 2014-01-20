@@ -3,3 +3,4 @@ env/
 setup.cfg
 accessall.egg-info/
 *.pyc
+dist/
