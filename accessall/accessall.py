@@ -61,6 +61,13 @@ def exportlib(user, password):
 
 
 def find_song(manager, song, artist, album):
+    """Fetch the user's list of uploaded songs and
+    find the one with song, artist, and album that
+    matches the ones passed in. This function
+    searches for the song incrementally and thus
+    should be safe even for very large libraries.
+
+    """
     for songs in manager.get_uploaded_songs(incremental=True):
         for songh in songs:
             match = (
@@ -73,6 +80,11 @@ def find_song(manager, song, artist, album):
 
 
 def download(manager, song, artist, album):
+    """Find the song matching the song, artist,
+    and album passed in. Download it to disk in
+    the currently directory.
+
+    """
     id = find_song(manager, song, artist, album)
     if id:
         name, stream = manager.download_song(id)
