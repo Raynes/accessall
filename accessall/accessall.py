@@ -19,13 +19,6 @@ from getpass import getpass
 from gmusicapi.clients import Mobileclient, Musicmanager
 
 
-KEYS = ['comment', 'rating', 'composer', 'year', 'album',
-        'albumArtist', 'title', 'totalDiscCount', 'trackNumber',
-        'discNumber', 'totalTrackCount', 'estimatedSize',
-        'beatsPerMinute', 'genre', 'playCount', 'artist',
-        'durationMillis']
-
-
 def select_keys(d, keys):
     """Return a dict that is a subset of d with only
     the keys specified. Any keys that do not exist in
@@ -52,12 +45,18 @@ def exportlib(user, password):
     library to a file called 'export.json'.
 
     """
+    keys = ['comment', 'rating', 'composer', 'year', 'album',
+            'albumArtist', 'title', 'totalDiscCount', 'trackNumber',
+            'discNumber', 'totalTrackCount', 'estimatedSize',
+            'beatsPerMinute', 'genre', 'playCount', 'artist',
+            'durationMillis']
+
     client = Mobileclient()
     client.login(user, password)
     with open('export.json', 'w+') as out:
         for songs in client.get_all_songs(incremental=True):
             for song in songs:
-                pruned = select_keys(song, KEYS)
+                pruned = select_keys(song, keys)
                 print(json.dumps(pruned), file=out)
 
 
