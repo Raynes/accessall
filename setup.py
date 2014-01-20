@@ -7,7 +7,7 @@ def deps():
 
 setup(
     name='accessall',
-    version='1.0',
+    version='1.2',
     long_description=__doc__,
     packages=['accessall'],
     include_package_data=True,
