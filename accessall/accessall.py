@@ -25,7 +25,7 @@ def select_keys(d, keys):
     d are set to None in the returned dict.
 
     """
-    return {key : d.get(key) for key in keys}
+    return {key: d.get(key) for key in keys}
 
 
 def login():
