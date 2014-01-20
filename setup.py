@@ -7,13 +7,13 @@ def deps():
 
 setup(
     name='accessall',
-    version='1.2',
+    version='1.3',
     long_description=__doc__,
     packages=['accessall'],
     include_package_data=True,
     install_requires=deps(),
     author='Anthony Grimes',
-    description='Export library info from google music.',
+    description='Google Music command line tool.',
     license='MIT',
     url='https://github.com/Raynes/accessall',
     entry_points={
