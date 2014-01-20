@@ -3,6 +3,12 @@
 Usage:
   accessall export USER
   accessall download ARTIST ALBUM SONG
+  accessall --version | -v
+  accessall --help | -h
+
+Options:
+  --version, -v    Show version.
+  --help
 
 """
 from __future__ import print_function
@@ -80,7 +86,7 @@ def download(manager, song, artist, album):
 
 def main():
     """Program entry point."""
-    args = docopt(__doc__, version='accessall 1.3')
+    args = docopt(__doc__, version='accessall 1.4')
     if args['export']:
         password = getpass('Password for Google Music: ')
         exportlib(args['USER'], password)
