@@ -1,7 +1,14 @@
-"""A simple program for exporting your library from gmusic."""
+"""A tool for accessing stuff on google music!
+
+Usage:
+  accessall export USER
+  accessall download ARTIST ALBUM SONG
+
+"""
 from __future__ import print_function
 import os.path
 import json
+from docopt import docopt
 from getpass import getpass
 from gmusicapi.clients import Mobileclient, Musicmanager
 
@@ -71,8 +78,9 @@ def download(manager, song, artist, album):
         print('Song not found.')
 
 
-def main(args):
+def main():
     """Program entry point."""
+    args = docopt(__doc__, version='accessall 1.3')
     if args['export']:
         password = getpass('Password for Google Music: ')
         exportlib(args['USER'], password)
